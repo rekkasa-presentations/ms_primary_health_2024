@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Εισαγωγή στην ανάλυση υγειονομικών δεδομένων πραγματικού κόσμου"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.html
+      - text: "Παρουσίαση"
+        href: presentation.html
+      - text: "Κώδικας"
+        href: code.html
+    right:
+      - icon: envelope
+        href: "mailto:arekkas@certh.gr"
+      - icon: github
+        href: "https://github.com/rekkasa-presentations/ml-in-omop-summerschool-2024"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
