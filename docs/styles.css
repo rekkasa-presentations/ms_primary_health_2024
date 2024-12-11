@@ -4,3 +4,9 @@
     font-size: 0.7em;
 }
 
+.slide-datatable {
+    max-width: 60%;
+    max-height: 200px;
+    overflow: auto;
+    font-size: 0.6em;
+}

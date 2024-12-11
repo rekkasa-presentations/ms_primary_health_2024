@@ -320,6 +320,17 @@
       margin-right: 0; 
     }
   </style>
+  <link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+  <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+  <script src="site_libs/datatables-binding-0.33/datatables.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="site_libs/dt-core-bootstrap4-1.13.6/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="site_libs/dt-core-bootstrap4-1.13.6/css/dataTables.bootstrap4.extra.css" rel="stylesheet">
+  <script src="site_libs/dt-core-bootstrap4-1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="site_libs/dt-core-bootstrap4-1.13.6/js/dataTables.bootstrap4.min.js"></script>
+  <link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+  <script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -368,7 +379,7 @@
 </p>
 <ul>
 <li>Λήψη τυχαίου δείγματος από τον πληθυσμό</li>
-<li>Τυχαιοποίημένη διανομή θεραπειών ενδιαφέροντος</li>
+<li>Τυχαιοποιημένη διανομή θεραπειών ενδιαφέροντος</li>
 <li>Αυστηρά προκαθορισμένα αποτελέσματα ενδιαφέροντος</li>
 <li>Αυστηρά προκαθορισμένα χρονικά πλαίσια</li>
 </ul>
@@ -395,8 +406,34 @@
 </div>
 </div>
 </div>
+</section>
+<section id="κλινικές-δοκιμές---παράδειγμα-1" class="slide level2">
+<h2>Κλινικές δοκιμές - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-d3f26e38cc9dc6b07fcb" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d3f26e38cc9dc6b07fcb">{"x":{"style":"bootstrap4","filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[0,0,0,0,0,0,0,0,0,0],[0,1,0,1,0,0,0,0,1,1],[1,1,1,1,1,0,0,1,1,1],["I","I","I","I","I","I","I","I","I","I"],[19.027,20.781,20.969,20.984,21.449,22.523,22.559,22.781,23.492,23.883],[130,124,135,129,157,135,134,120,110,128],[60,75,85,90,70,84,102,50,96,84],["no","no","no","no","no","no","no","no","no","no"],["Anterior","Inferior","Anterior","Inferior","Anterior","Anterior","Other","Inferior","Anterior","Other"]],"container":"<table class=\"table slide-datatable\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>outcome<\/th>\n      <th>treatment<\/th>\n      <th>sex_male<\/th>\n      <th>Killip<\/th>\n      <th>age<\/th>\n      <th>sysbp<\/th>\n      <th>pulse<\/th>\n      <th>pmi<\/th>\n      <th>miloc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","paging":false,"searching":false,"info":false,"columnDefs":[{"className":"dt-right","targets":[1,2,3,5,6,7]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"outcome","targets":1},{"name":"treatment","targets":2},{"name":"sex_male","targets":3},{"name":"Killip","targets":4},{"name":"age","targets":5},{"name":"sysbp","targets":6},{"name":"pulse","targets":7},{"name":"pmi","targets":8},{"name":"miloc","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="κλινικές-δοκιμές---παράδειγμα-2" class="slide level2">
+<h2>Κλινικές δοκιμές - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
 
-<div class="quarto-auto-generated-content">
+<img data-src="images/rct_dag.svg" class="r-stretch"></section>
+<section id="κλινικές-δοκιμές---παράδειγμα-3" class="slide level2">
+<h2>Κλινικές δοκιμές - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+
+
+<img data-src="images/observational_dag.svg" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
@@ -612,6 +649,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

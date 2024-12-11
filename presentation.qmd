@@ -10,6 +10,11 @@ format:
 css: styles.css
 ---
 
+```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+source("code/data_preparation.R")
+gusto <- readr::read_csv("data/gusto.csv")
+```
+
 # Εισαγωγικά
 
 ## Στόχοι
@@ -45,7 +50,7 @@ css: styles.css
 \
 
 * Λήψη τυχαίου δείγματος από τον πληθυσμό
-* Τυχαιοποίημένη διανομή θεραπειών ενδιαφέροντος
+* Τυχαιοποιημένη διανομή θεραπειών ενδιαφέροντος
 * Αυστηρά προκαθορισμένα αποτελέσματα ενδιαφέροντος
 * Αυστηρά προκαθορισμένα χρονικά πλαίσια
 
@@ -81,4 +86,38 @@ css: styles.css
 
 :::
 
+## Κλινικές δοκιμές - Παράδειγμα
+
+\
+\
+
+```{r,eval=TRUE,echo=FALSE}
+gusto |>
+  head(10) |> 
+  DT::datatable(
+    style = "bootstrap4",
+    class = "slide-datatable",
+    filter = "none",
+    options = list(
+      dom = 't',
+      paging = FALSE,
+      searching = FALSE,
+      info = FALSE
+    )
+  )
+```
+
+## Κλινικές δοκιμές - Παράδειγμα
+
+\
+\
+
+![](images/rct_dag.svg)
+
+## Κλινικές δοκιμές - Παράδειγμα
+
+\
+\
+
+![](images/observational_dag.svg)
 
