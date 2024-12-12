@@ -1,14 +1,14 @@
 set.seed(19910930)
-gusto <- readr::read_csv("data/gusto.csv")
+gusto <- readr::read_csv(
+  file = "data/gusto.csv",
+  show_col_types = FALSE
+)
 
 model <- glm(
   formula = outcome ~ treatment,
   family = "binomial",
   data = gusto
 )
-
-# odds_ratio <- exp(model$coefficients["treatment"])
-# confidence_intervals <- exp(confint(model))
 
 gusto_with_sex_confounder <- gusto |>
   dplyr::mutate(
@@ -39,9 +39,36 @@ model_with_sex_adjustment <- glm(
 odds_ratio_rct <- exp(model_rct$coefficients["treatment"])
 odds_ratio_with_sex_confounder <- exp(model_with_sex_confounder$coefficients["new_treatment"])
 odds_ratio_with_sex_adjustment <- exp(model_with_sex_adjustment$coefficients["new_treatment"])
+#
+# c(
+#   rct = odds_ratio_rct,
+#   confounding = odds_ratio_with_sex_confounder,
+#   adjusted = odds_ratio_with_sex_adjustment
+# )
 
-c(
-  rct = odds_ratio_rct,
-  confounding = odds_ratio_with_sex_confounder,
-  adjusted = odds_ratio_with_sex_adjustment
+
+gusto_with_multiple_confounders <- gusto |>
+  dplyr::mutate(
+    linear_predictor_treatment = log(.55) + log(.4) * sex_male + log(.9) * (age - mean(age)) + log(1.1) * (sysbp - mean(sysbp)),
+    new_treatment = rbinom(nrow(gusto), 1, plogis(linear_predictor_treatment)),
+    linear_predictor_outcome = -45 + log(.4) * sex_male + log(.3) * (age - mean(age)) + log(.3) * (sysbp - mean(sysbp)) - 0.1586183 * new_treatment,
+    new_outcome = rbinom(nrow(gusto), 1, plogis(linear_predictor_outcome))
+  )
+
+c(mean(gusto_with_multiple_confounders$new_outcome), mean(gusto_with_multiple_confounders$outcome))
+
+matching_on_ps <- MatchIt::matchit(
+  new_treatment ~ age + sex_male + sysbp,
+  data = gusto_with_multiple_confounders,
+  method = "nearest",
+  caliper = .2
 )
+
+matched_sample <- MatchIt::match.data(matching_on_ps)
+
+pp <- glm(
+  new_outcome ~ new_treatment,
+  data = matched_sample,
+  family = "binomial"
+)
+exp(pp$coefficients["new_treatment"])

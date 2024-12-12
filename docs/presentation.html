@@ -430,8 +430,8 @@
 </p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-38e4d6f50003e7d1a49e" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-38e4d6f50003e7d1a49e">{"x":{"style":"bootstrap4","filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[0,0,0,0,0,0,0,0,0,0],[0,1,0,1,0,0,0,0,1,1],[1,1,1,1,1,0,0,1,1,1],["I","I","I","I","I","I","I","I","I","I"],[19.027,20.781,20.969,20.984,21.449,22.523,22.559,22.781,23.492,23.883],[130,124,135,129,157,135,134,120,110,128],[60,75,85,90,70,84,102,50,96,84],["no","no","no","no","no","no","no","no","no","no"],["Anterior","Inferior","Anterior","Inferior","Anterior","Anterior","Other","Inferior","Anterior","Other"]],"container":"<table class=\"table slide-datatable\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>outcome<\/th>\n      <th>treatment<\/th>\n      <th>sex_male<\/th>\n      <th>Killip<\/th>\n      <th>age<\/th>\n      <th>sysbp<\/th>\n      <th>pulse<\/th>\n      <th>pmi<\/th>\n      <th>miloc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","paging":false,"searching":false,"info":false,"columnDefs":[{"className":"dt-right","targets":[1,2,3,5,6,7]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"outcome","targets":1},{"name":"treatment","targets":2},{"name":"sex_male","targets":3},{"name":"Killip","targets":4},{"name":"age","targets":5},{"name":"sysbp","targets":6},{"name":"pulse","targets":7},{"name":"pmi","targets":8},{"name":"miloc","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-1cba78816fcf51bb7e74" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-1cba78816fcf51bb7e74">{"x":{"style":"bootstrap4","filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[0,0,0,0,0,0,0,0,0,0],[0,1,0,1,0,0,0,0,1,1],[1,1,1,1,1,0,0,1,1,1],["I","I","I","I","I","I","I","I","I","I"],[19.027,20.781,20.969,20.984,21.449,22.523,22.559,22.781,23.492,23.883],[130,124,135,129,157,135,134,120,110,128],[60,75,85,90,70,84,102,50,96,84],["no","no","no","no","no","no","no","no","no","no"],["Anterior","Inferior","Anterior","Inferior","Anterior","Anterior","Other","Inferior","Anterior","Other"]],"container":"<table class=\"table slide-datatable\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>outcome<\/th>\n      <th>treatment<\/th>\n      <th>sex_male<\/th>\n      <th>Killip<\/th>\n      <th>age<\/th>\n      <th>sysbp<\/th>\n      <th>pulse<\/th>\n      <th>pmi<\/th>\n      <th>miloc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","paging":false,"searching":false,"info":false,"columnDefs":[{"className":"dt-right","targets":[1,2,3,5,6,7]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"outcome","targets":1},{"name":"treatment","targets":2},{"name":"sex_male","targets":3},{"name":"Killip","targets":4},{"name":"age","targets":5},{"name":"sysbp","targets":6},{"name":"pulse","targets":7},{"name":"pmi","targets":8},{"name":"miloc","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -573,6 +573,80 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 <img data-src="images/observational_dag.svg" class="r-stretch"></section>
 <section id="πλασματική-συσχέτιση---παράδειγμα" class="slide level2">
 <h2>Πλασματική συσχέτιση - Παράδειγμα</h2>
+<p><br>
+</p>
+<blockquote>
+<p>Δημιουργία συγχυτικού παράγοντα</p>
+</blockquote>
+<p><br>
+</p>
+<p><span class="math display">\[
+log(\frac{p_{treatment}}{1-p_{treatment}}) = -0.013 - 0.92\times sex\_male
+\]</span></p>
+<p><br>
+</p>
+<p><span class="math display">\[
+log(\frac{p_{outcome}}{1 - p_{outcome}}) = -1.92 - 0.92\times sex\_male - 0.16\times treatment
+\]</span></p>
+</section>
+<section id="πλασματική-συσχέτιση---παράδειγμα-1" class="slide level2">
+<h2>Πλασματική συσχέτιση - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="πλασματική-συσχέτιση---παράδειγμα-2" class="slide level2">
+<h2>Πλασματική συσχέτιση - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Αν χρησιμοποιήσουμε την ίδια μέθοδο με πριν για να υπολογίσουμε την επίδραση της θεραπείας, θα έχουμε:</p>
+</blockquote>
+<p><span class="math display">\[
+log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
+\]</span></p>
+<p>Το αποτέλεσμα της ανάλυσης:</p>
+<p><span class="math display">\[OR = e^{\beta_t} = e^{-0.05} \approx 1.05 \neq0.85 (RCT)\]</span></p>
+</section>
+<section id="πλασματική-συσχέτιση-1" class="slide level2">
+<h2>Πλασματική συσχέτιση</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Αν οι συγχυτικοί παράγοντες της ανάλυσής μας είναι γνωστοί, μπορούμε να αντιμετωπίσουμε την επίδρασή τους συμπεριλαμβάνοντάς τους στο μοντέλο.</p>
+</blockquote>
+</section>
+<section id="πλασματική-συσχέτιση---παράδειγμα-3" class="slide level2">
+<h2>Πλασματική συσχέτιση - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<p><span class="math display">\[
+log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\_male
+\]</span></p>
+<p>Το αποτέλεσμα της ανάλυσης:</p>
+<p><span class="math display">\[OR = e^{\beta_t} = e^{-0.15} \approx 0.86 \approx0.85 (RCT)\]</span></p>
+</section>
+<section id="συγχυτικοί-παράγοντες---πλήθος" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Πλήθος</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Τι κάνουμε αν το πλήθος των γνωστών συγχυτικών παραγόντων είναι πολύ μεγάλο;</p>
+</blockquote>
+</section>
+<section id="συγχυτικοί-παράγοντες---πλήθος-1" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Πλήθος</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p><strong>Πιθανή λύση</strong></p>
+<p>Συμπερίληψη όλων των συγχυτικών παραγόντων στο μοντέλο</p>
+</blockquote>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
