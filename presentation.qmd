@@ -13,7 +13,7 @@ css: styles.css
 
 ```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
 source("code/data_preparation.R")
-source("code/test.R")
+source("code/presenation_preparation.R")
 gusto <- readr::read_csv(
   file = "data/gusto.csv",
   show_col_types = FALSE
