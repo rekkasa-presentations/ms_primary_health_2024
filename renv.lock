@@ -739,13 +739,6 @@
         "tools"
       ],
       "Hash": "8687398773806cfff9401a2feca96298"
-    },
-    "yaml": {
-      "Package": "yaml",
-      "Version": "2.3.5",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "458bb38374d73bf83b1bb85e353da200"
     }
   }
 }

@@ -333,7 +333,7 @@ $$
 
 Το αποτέλεσμα της ανάλυσης:
 
-$$OR = e^{\beta_t} = e^{-0.05} \approx 1.05 \neq0.85 (RCT)$$
+$$OR = e^{\beta_t} = e^{0.05} \approx 1.05 \neq0.85 (RCT)$$
 
 ## Πλασματική συσχέτιση
 
@@ -373,3 +373,273 @@ $$OR = e^{\beta_t} = e^{-0.15} \approx 0.86 \approx0.85 (RCT)$$
 > **Πιθανή λύση**
 >
 > Συμπερίληψη όλων των συγχυτικών παραγόντων στο μοντέλο
+
+
+## Συγχυτικοί παράγοντες - Πλήθος
+
+\
+\
+
+> **Σκορ ροπής**
+> \
+> Πιθανότητα χορήγησης στον ασθενή της θεραπείας ενδιαφέροντος
+
+
+## Συγχυτικοί παράγοντες - Πλήθος
+
+\
+\
+
+> **Χρήση**
+>
+> Τα σκορ ροπής, συνήθως, χρησιμοποιούνται για να αντιστοιχίσουν ασθενείς που 
+> λαμβάνουν τη θεραπεία ενδιαφέροντος με ασθενείς που λαμβάνουν την εναλλακτική
+> θεραπεία
+
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+\
+
+> Δημιουργία δεδομένων με περισσότερους συγχυτικούς παράγοντες
+
+\
+
+$$
+\begin{align}
+log(\frac{p_{treatment}}{1-p_{treatment}}) = &-0.60 - 0.92\times sex\_male\\
+&-0.11\times (age - \overline{age})\\
+&+ 0.1\times (sysbp - \overline{sysbp}) 
+\end{align}
+$$
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+\
+
+$$
+\begin{align}
+log(\frac{p_{outcome}}{1-p_{outcome}}) = &-45 - 0.92\times sex\_male\\
+&-1.2\times (age - \overline{age})\\
+&-1.2\times (sysbp - \overline{sysbp})\\
+&-0.16\times treatment
+\end{align}
+$$
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+
+```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+
+rct_data <- gusto_with_multiple_confounders |>
+  dplyr::mutate(
+    sex = ifelse(sex_male == 1, "male", "female"),
+    treatment = ifelse(treatment == 1, "tPA", "Streptokinase")
+  ) |>
+  dplyr::mutate(study = "Κλινική δοκιμή")
+
+plot_colors <- c(
+  "tPA" = "#5B84B1FF",
+  "Streptokinase" = "#FC766AFF")
+
+rct_data |>
+  ggplot2::ggplot(
+    ggplot2::aes(x = age, fill = treatment)
+  ) +
+  ggplot2::geom_density(position = "dodge", alpha = .4) +
+  ggplot2::labs(
+    title = "Κλινική δοκιμή: Κατανομή ηλικίας ανά θεραπεία",
+    x = "Ηλικία",
+    y = "Συχνότητα"
+  ) +
+  ggplot2::scale_fill_manual(values = plot_colors) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(
+    legend.position = "top",
+    legend.title = ggplot2::element_blank()
+  )
+
+```
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+
+```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+
+observational_data <- gusto_with_multiple_confounders|>
+  dplyr::mutate(
+    sex = ifelse(sex_male == 1, "male", "female"),
+    treatment = ifelse(new_treatment == 1, "tPA", "Streptokinase")
+  ) |>
+  dplyr::mutate(study = "Παρατηρησιακή μελέτη")
+
+
+plot_colors <- c(
+  "tPA" = "#5B84B1FF",
+  "Streptokinase" = "#FC766AFF")
+
+observational_data |>
+  ggplot2::ggplot(
+    ggplot2::aes(x = age, fill = treatment)
+  ) +
+  ggplot2::geom_density(position = "dodge", alpha = .4) +
+  ggplot2::labs(
+    title = "Παρατηρησιακή μελέτη: Κατανομή ηλικίας ανά θεραπεία",
+    x = "Ηλικία",
+    y = "Συχνότητα"
+  ) +
+  ggplot2::scale_fill_manual(values = plot_colors) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(
+    legend.position = "top",
+    legend.title = ggplot2::element_blank()
+  )
+
+  
+
+```
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+
+```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+
+rct_data |>
+  ggplot2::ggplot(
+    ggplot2::aes(x = sysbp, fill = treatment)
+  ) +
+  ggplot2::geom_density(position = "dodge", alpha = .4, adjust = 2) +
+  ggplot2::labs(
+    title = "Κλινική δοκιμή: Κατανομή συστολικής πίεσης ανά θεραπεία",
+    x = "Συστολική πίεση",
+    y = "Συχνότητα"
+  ) +
+  ggplot2::scale_fill_manual(values = plot_colors) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(
+    legend.position = "top",
+    legend.title = ggplot2::element_blank()
+  )
+
+  
+
+```
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+
+```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+
+observational_data |>
+  ggplot2::ggplot(
+    ggplot2::aes(x = sysbp, fill = treatment)
+  ) +
+  ggplot2::geom_density(position = "dodge", alpha = .4, adjust = 2) +
+  ggplot2::labs(
+    title = "Παρατηρησιακή μελέτη: Κατανομή συστολικής πίεσης ανά θεραπεία",
+    x = "Συστολική πίεση",
+    y = "Συχνότητα"
+  ) +
+  ggplot2::scale_fill_manual(values = plot_colors) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(
+    legend.position = "top",
+    legend.title = ggplot2::element_blank()
+  )
+
+  
+
+```
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+\
+
+$$
+log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
+$$
+
+
+Το αποτέλεσμα της ανάλυσης:
+
+$$OR = e^{\beta_t} = e^{0.17} \approx 1.19 \neq0.85 (RCT)$$
+
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+\
+
+
+Το αποτέλεσμα της ανάλυσης, ύστερα από αντιστοίχιση:
+
+$$OR = e^{\beta_t} = e^{-0.14} \approx 0.87 \approx 0.85 (RCT)$$
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+
+```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+
+matched_sample |>
+  dplyr::mutate(
+    sex = ifelse(sex_male == 1, "male", "female"),
+    treatment = ifelse(new_treatment == 1, "tPA", "Streptokinase")
+  ) |> 
+  ggplot2::ggplot(
+    ggplot2::aes(x = age, fill = treatment)
+  ) +
+  ggplot2::geom_density(position = "dodge", alpha = .4) +
+  ggplot2::labs(
+    title = "Aντιστοίχιση: Κατανομή ηλικίας ανά θεραπεία",
+    x = "Ηλικία",
+    y = "Συχνότητα"
+  ) +
+  ggplot2::scale_fill_manual(values = plot_colors) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(
+    legend.position = "top",
+    legend.title = ggplot2::element_blank()
+  )
+
+  
+
+```
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+
+```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
+
+matched_sample |>
+  dplyr::mutate(
+    sex = ifelse(sex_male == 1, "male", "female"),
+    treatment = ifelse(new_treatment == 1, "tPA", "Streptokinase")
+  ) |>
+  ggplot2::ggplot(
+    ggplot2::aes(x = sysbp, fill = treatment)
+  ) +
+  ggplot2::geom_density(position = "dodge", alpha = .4, adjust = 2) +
+  ggplot2::labs(
+    title = "Αντιστοίχιση: Κατανομή συστολικής πίεσης ανά θεραπεία",
+    x = "Συστολική πίεση",
+    y = "Συχνότητα"
+  ) +
+  ggplot2::scale_fill_manual(values = plot_colors) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(
+    legend.position = "top",
+    legend.title = ggplot2::element_blank()
+  )
+
+  
+
+```

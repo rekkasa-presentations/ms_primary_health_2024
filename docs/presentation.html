@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+  <meta name="generator" content="quarto-1.5.57">
 
   <title>Εισαγωγή στην ανάλυση υγειονομικών δεδομένων πραγματικού κόσμου</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -420,8 +420,7 @@
 <p><strong>Χρονικό πλαίσιο</strong>: 30 ημέρες</p>
 </blockquote>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="κλινικές-δοκιμές---παράδειγμα-1" class="slide level2">
 <h2>Κλινικές δοκιμές - Παράδειγμα</h2>
@@ -430,8 +429,8 @@
 </p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-1cba78816fcf51bb7e74" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1cba78816fcf51bb7e74">{"x":{"style":"bootstrap4","filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[0,0,0,0,0,0,0,0,0,0],[0,1,0,1,0,0,0,0,1,1],[1,1,1,1,1,0,0,1,1,1],["I","I","I","I","I","I","I","I","I","I"],[19.027,20.781,20.969,20.984,21.449,22.523,22.559,22.781,23.492,23.883],[130,124,135,129,157,135,134,120,110,128],[60,75,85,90,70,84,102,50,96,84],["no","no","no","no","no","no","no","no","no","no"],["Anterior","Inferior","Anterior","Inferior","Anterior","Anterior","Other","Inferior","Anterior","Other"]],"container":"<table class=\"table slide-datatable\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>outcome<\/th>\n      <th>treatment<\/th>\n      <th>sex_male<\/th>\n      <th>Killip<\/th>\n      <th>age<\/th>\n      <th>sysbp<\/th>\n      <th>pulse<\/th>\n      <th>pmi<\/th>\n      <th>miloc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","paging":false,"searching":false,"info":false,"columnDefs":[{"className":"dt-right","targets":[1,2,3,5,6,7]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"outcome","targets":1},{"name":"treatment","targets":2},{"name":"sex_male","targets":3},{"name":"Killip","targets":4},{"name":"age","targets":5},{"name":"sysbp","targets":6},{"name":"pulse","targets":7},{"name":"pmi","targets":8},{"name":"miloc","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-090a4b06f76661b6156b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-090a4b06f76661b6156b">{"x":{"style":"bootstrap4","filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[0,0,0,0,0,0,0,0,0,0],[0,1,0,1,0,0,0,0,1,1],[1,1,1,1,1,0,0,1,1,1],["I","I","I","I","I","I","I","I","I","I"],[19.027,20.781,20.969,20.984,21.449,22.523,22.559,22.781,23.492,23.883],[130,124,135,129,157,135,134,120,110,128],[60,75,85,90,70,84,102,50,96,84],["no","no","no","no","no","no","no","no","no","no"],["Anterior","Inferior","Anterior","Inferior","Anterior","Anterior","Other","Inferior","Anterior","Other"]],"container":"<table class=\"table slide-datatable\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>outcome<\/th>\n      <th>treatment<\/th>\n      <th>sex_male<\/th>\n      <th>Killip<\/th>\n      <th>age<\/th>\n      <th>sysbp<\/th>\n      <th>pulse<\/th>\n      <th>pmi<\/th>\n      <th>miloc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","paging":false,"searching":false,"info":false,"columnDefs":[{"className":"dt-right","targets":[1,2,3,5,6,7]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"outcome","targets":1},{"name":"treatment","targets":2},{"name":"sex_male","targets":3},{"name":"Killip","targets":4},{"name":"age","targets":5},{"name":"sysbp","targets":6},{"name":"pulse","targets":7},{"name":"pmi","targets":8},{"name":"miloc","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -607,7 +606,7 @@ log(\frac{p_{outcome}}{1 - p_{outcome}}) = -1.92 - 0.92\times sex\_male - 0.16\t
 log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 \]</span></p>
 <p>Το αποτέλεσμα της ανάλυσης:</p>
-<p><span class="math display">\[OR = e^{\beta_t} = e^{-0.05} \approx 1.05 \neq0.85 (RCT)\]</span></p>
+<p><span class="math display">\[OR = e^{\beta_t} = e^{0.05} \approx 1.05 \neq0.85 (RCT)\]</span></p>
 </section>
 <section id="πλασματική-συσχέτιση-1" class="slide level2">
 <h2>Πλασματική συσχέτιση</h2>
@@ -647,8 +646,115 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\
 <p><strong>Πιθανή λύση</strong></p>
 <p>Συμπερίληψη όλων των συγχυτικών παραγόντων στο μοντέλο</p>
 </blockquote>
+</section>
+<section id="συγχυτικοί-παράγοντες---πλήθος-2" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Πλήθος</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p><strong>Σκορ ροπής</strong><br>
+Πιθανότητα χορήγησης στον ασθενή της θεραπείας ενδιαφέροντος</p>
+</blockquote>
+</section>
+<section id="συγχυτικοί-παράγοντες---πλήθος-3" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Πλήθος</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p><strong>Χρήση</strong></p>
+<p>Τα σκορ ροπής, συνήθως, χρησιμοποιούνται για να αντιστοιχίσουν ασθενείς που λαμβάνουν τη θεραπεία ενδιαφέροντος με ασθενείς που λαμβάνουν την εναλλακτική θεραπεία</p>
+</blockquote>
+</section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Δημιουργία δεδομένων με περισσότερους συγχυτικούς παράγοντες</p>
+</blockquote>
+<p><br>
+</p>
+<p><span class="math display">\[
+\begin{align}
+log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
+&amp;-0.11\times (age - \overline{age})\\
+&amp;+ 0.1\times (sysbp - \overline{sysbp})
+\end{align}
+\]</span></p>
+</section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-1" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<p><span class="math display">\[
+\begin{align}
+log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-45 - 0.92\times sex\_male\\
+&amp;-1.2\times (age - \overline{age})\\
+&amp;-1.2\times (sysbp - \overline{sysbp})\\
+&amp;-0.16\times treatment
+\end{align}
+\]</span></p>
+</section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-2" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
 
-<div class="quarto-auto-generated-content">
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-3" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-4" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-5" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-6" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<p><span class="math display">\[
+log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
+\]</span></p>
+<p>Το αποτέλεσμα της ανάλυσης:</p>
+<p><span class="math display">\[OR = e^{\beta_t} = e^{0.17} \approx 1.19 \neq0.85 (RCT)\]</span></p>
+</section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-7" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<p>Το αποτέλεσμα της ανάλυσης, ύστερα από αντιστοίχιση:</p>
+<p><span class="math display">\[OR = e^{\beta_t} = e^{-0.14} \approx 0.87 \approx 0.85 (RCT)\]</span></p>
+</section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-8" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-9" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
@@ -934,18 +1040,7 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -977,7 +1072,29 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -985,7 +1102,7 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

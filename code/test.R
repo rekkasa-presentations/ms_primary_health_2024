@@ -49,13 +49,19 @@ odds_ratio_with_sex_adjustment <- exp(model_with_sex_adjustment$coefficients["ne
 
 gusto_with_multiple_confounders <- gusto |>
   dplyr::mutate(
-    linear_predictor_treatment = log(.55) + log(.4) * sex_male + log(.9) * (age - mean(age)) + log(1.1) * (sysbp - mean(sysbp)),
+    linear_predictor_treatment = -.34 + log(.4) * sex_male + log(.9) * (age - mean(age)) + log(1.05) * (sysbp - mean(sysbp)),
     new_treatment = rbinom(nrow(gusto), 1, plogis(linear_predictor_treatment)),
-    linear_predictor_outcome = -45 + log(.4) * sex_male + log(.3) * (age - mean(age)) + log(.3) * (sysbp - mean(sysbp)) - 0.1586183 * new_treatment,
+    linear_predictor_outcome = -3 + log(.4) * sex_male + log(1.1) * (age - mean(age)) + log(1.05) * (sysbp - mean(sysbp)) - 0.1586183 * new_treatment,
     new_outcome = rbinom(nrow(gusto), 1, plogis(linear_predictor_outcome))
   )
 
 c(mean(gusto_with_multiple_confounders$new_outcome), mean(gusto_with_multiple_confounders$outcome))
+
+model_unadjusted_multiple_confounders <- glm(
+  new_outcome ~ new_treatment,
+  data = gusto_with_multiple_confounders,
+  family = "binomial"
+)
 
 matching_on_ps <- MatchIt::matchit(
   new_treatment ~ age + sex_male + sysbp,
@@ -66,9 +72,8 @@ matching_on_ps <- MatchIt::matchit(
 
 matched_sample <- MatchIt::match.data(matching_on_ps)
 
-pp <- glm(
+model_adjusted_multiple_confounders <- glm(
   new_outcome ~ new_treatment,
   data = matched_sample,
   family = "binomial"
 )
-exp(pp$coefficients["new_treatment"])
