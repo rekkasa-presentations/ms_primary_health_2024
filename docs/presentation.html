@@ -336,7 +336,13 @@
   <div class="reveal">
     <div class="slides">
 
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Εισαγωγή στην ανάλυση υγειονομικών δεδομένων πραγματικού κόσμου</h1>
 
+<div class="quarto-title-authors">
+</div>
+
+</section>
 <section>
 <section id="εισαγωγικά" class="title-slide slide level1 center">
 <h1>Εισαγωγικά</h1>
@@ -384,6 +390,13 @@
 <li>Αυστηρά προκαθορισμένα χρονικά πλαίσια</li>
 </ul>
 </section>
+<section id="κλινικές-δοκιμές-1" class="slide level2">
+<h2>Κλινικές δοκιμές</h2>
+<p><br>
+<br>
+</p>
+
+<img data-src="images/rct_dag.svg" class="r-stretch"></section>
 <section id="κλινικές-δοκιμές---παράδειγμα" class="slide level2">
 <h2>Κλινικές δοκιμές - Παράδειγμα</h2>
 <p><br>
@@ -396,6 +409,8 @@
 <p><br>
 </p>
 <div class="small-text">
+<blockquote>
+<p><strong>Πληθυσμός</strong>: Ασθενείς με οξύ έμφραγμα του μυοκαρδίου</p>
 <p><strong>Θεραπείες</strong>:</p>
 <ul>
 <li>Ιστικός ενεργοποιητής πλασμινογόνου (αλτεπλάση)</li>
@@ -403,6 +418,7 @@
 </ul>
 <p><strong>Αποτέλεσμα</strong>: Θάνατος</p>
 <p><strong>Χρονικό πλαίσιο</strong>: 30 ημέρες</p>
+</blockquote>
 </div>
 </div>
 </div>
@@ -414,8 +430,8 @@
 </p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-d3f26e38cc9dc6b07fcb" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d3f26e38cc9dc6b07fcb">{"x":{"style":"bootstrap4","filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[0,0,0,0,0,0,0,0,0,0],[0,1,0,1,0,0,0,0,1,1],[1,1,1,1,1,0,0,1,1,1],["I","I","I","I","I","I","I","I","I","I"],[19.027,20.781,20.969,20.984,21.449,22.523,22.559,22.781,23.492,23.883],[130,124,135,129,157,135,134,120,110,128],[60,75,85,90,70,84,102,50,96,84],["no","no","no","no","no","no","no","no","no","no"],["Anterior","Inferior","Anterior","Inferior","Anterior","Anterior","Other","Inferior","Anterior","Other"]],"container":"<table class=\"table slide-datatable\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>outcome<\/th>\n      <th>treatment<\/th>\n      <th>sex_male<\/th>\n      <th>Killip<\/th>\n      <th>age<\/th>\n      <th>sysbp<\/th>\n      <th>pulse<\/th>\n      <th>pmi<\/th>\n      <th>miloc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","paging":false,"searching":false,"info":false,"columnDefs":[{"className":"dt-right","targets":[1,2,3,5,6,7]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"outcome","targets":1},{"name":"treatment","targets":2},{"name":"sex_male","targets":3},{"name":"Killip","targets":4},{"name":"age","targets":5},{"name":"sysbp","targets":6},{"name":"pulse","targets":7},{"name":"pmi","targets":8},{"name":"miloc","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-38e4d6f50003e7d1a49e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-38e4d6f50003e7d1a49e">{"x":{"style":"bootstrap4","filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[0,0,0,0,0,0,0,0,0,0],[0,1,0,1,0,0,0,0,1,1],[1,1,1,1,1,0,0,1,1,1],["I","I","I","I","I","I","I","I","I","I"],[19.027,20.781,20.969,20.984,21.449,22.523,22.559,22.781,23.492,23.883],[130,124,135,129,157,135,134,120,110,128],[60,75,85,90,70,84,102,50,96,84],["no","no","no","no","no","no","no","no","no","no"],["Anterior","Inferior","Anterior","Inferior","Anterior","Anterior","Other","Inferior","Anterior","Other"]],"container":"<table class=\"table slide-datatable\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>outcome<\/th>\n      <th>treatment<\/th>\n      <th>sex_male<\/th>\n      <th>Killip<\/th>\n      <th>age<\/th>\n      <th>sysbp<\/th>\n      <th>pulse<\/th>\n      <th>pmi<\/th>\n      <th>miloc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"t","paging":false,"searching":false,"info":false,"columnDefs":[{"className":"dt-right","targets":[1,2,3,5,6,7]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"outcome","targets":1},{"name":"treatment","targets":2},{"name":"sex_male","targets":3},{"name":"Killip","targets":4},{"name":"age","targets":5},{"name":"sysbp","targets":6},{"name":"pulse","targets":7},{"name":"pmi","targets":8},{"name":"miloc","targets":9}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -424,16 +440,141 @@
 <p><br>
 <br>
 </p>
-
-<img data-src="images/rct_dag.svg" class="r-stretch"></section>
+<ul>
+<li>Η έκβαση ενδιαφέροντος είναι δυαδική (0 ή 1)</li>
+</ul>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Πώς μοντελοποιούμε μία τέτοια έκβαση;</p>
+</blockquote>
+</section>
 <section id="κλινικές-δοκιμές---παράδειγμα-3" class="slide level2">
 <h2>Κλινικές δοκιμές - Παράδειγμα</h2>
 <p><br>
 <br>
 </p>
+<p><strong>Λογιστική παλινδρόμηση</strong></p>
+<p><br>
+</p>
+<p><span class="math display">\[
+log(\frac{p}{1-p}) = \beta_0+\beta_1x_1+\dots+\beta_px_p
+\]</span></p>
+<ul>
+<li><span class="math inline">\(p\)</span> είναι η πιθανότητα να συμβεί το αποτέλεσμα ενδιαφέροντος</li>
+<li><span class="math inline">\(x_1,\dots,x_p\)</span> είναι οι μεταβλητές που έχουμε καταγράψει</li>
+<li><span class="math inline">\(\beta_0,\dots,\beta_p\)</span> είναι οι παράμετροι του μοντέλου</li>
+</ul>
+</section>
+<section id="κλινικές-δοκιμές---παράδειγμα-4" class="slide level2">
+<h2>Κλινικές δοκιμές - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<p>Το μοντέλο που θα χρησιμοποιήσουμε για τη σύγκριση των δύο θεραπειών:</p>
+<p><span class="math display">\[
+log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
+\]</span></p>
+<p>Το αποτέλεσμα της ανάλυσης:</p>
+<p><span class="math display">\[OR = e^{\beta_t} = e^{-0.16} \approx 0.85\]</span></p>
+</section></section>
+<section>
+<section id="δεδομένα-πραγματικού-κόσμου" class="title-slide slide level1 center">
+<h1>Δεδομένα πραγματικού κόσμου</h1>
 
+</section>
+<section id="περιορισμοί-κλινικών-δοκιμών" class="slide level2">
+<h2>Περιορισμοί κλινικών δοκιμών</h2>
+<p><br>
+<br>
+</p>
+<ul>
+<li>Απαιτούν πολύ χρόνο</li>
+<li>Έχουν πολύ μεγάλο κόστος</li>
+<li>Απαιτούν τη στρατολόγηση μεγάλου αριθμού συμμετεχόντων</li>
+<li>Μελετούν πολύ συγκεκριμένους πληθυσμούς</li>
+<li>Συνήθως απαντούν σε έναν πολύ περιορισμένο αριθμό ερωτημάτων</li>
+<li>Εξ’ορισμού, απαιτούν πειραματισμό — ηθικά ζητήματα</li>
+</ul>
+</section>
+<section id="δεδομένα-πραγματικού-κόσμου-1" class="slide level2">
+<h2>Δεδομένα πραγματικού κόσμου</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Οι ασθενείς, κατά την αλληλεπίδρασή τους με το σύστημα υγείας παράγουν έναν τεράστιο όγκο δεδομένων.</p>
+</blockquote>
+<p><br>
+</p>
+<ul>
+<li>Ηλεκτρονικά συστήματα νοσοκομείων</li>
+<li>Ηλεκτρονικά συστήματα παρόχων πρωτοβάθμιας περίθαλψης</li>
+<li>Συστήματα παρόχων ηλεκτρονικής συνταγογράφησης</li>
+<li>Συστήματα ασφαλιστικών εταιρειών</li>
+<li>Μητρώα ασθενών</li>
+</ul>
+</section>
+<section id="πλεονεκτήματα" class="slide level2">
+<h2>Πλεονεκτήματα</h2>
+<p><br>
+<br>
+</p>
+<ul>
+<li>Χρειάζονται σημαντικά λιγότερο χρόνο</li>
+<li>Τα αποτελέσματα μπορούν πιο εύκολα να γενικευθούν</li>
+<li>Περιέχουν διαφορετικούς πληθυσμούς</li>
+</ul>
+</section>
+<section id="πλεονεκτήματα-1" class="slide level2">
+<h2>Πλεονεκτήματα</h2>
+<p><br>
+<br>
+</p>
+<ul>
+<li>Μειώνουν την έκθεση των ασθενών σε κινδύνους</li>
+<li>Μπορούν να βοηθήσουν στη μελέτη σπάνιων ασθενειών</li>
+<li>Μπορούν να πραγματοποιηθούν σε συνθήκες που ο πειραματισμός είναι αδύνατος</li>
+</ul>
+</section>
+<section id="μειονεκτήματα" class="slide level2">
+<h2>Μειονεκτήματα</h2>
+<p><br>
+<br>
+</p>
+<ul>
+<li>Συχνά περιορισμένη αντιπροσωπευτικότητα</li>
+<li>Ασυνέχεια στην καταγραφή της κατάστασης των ασθενών</li>
+<li>Συστηματική απώλεια πληροφορίας (π.χ. ιατρικό ιστορικό)</li>
+<li>Τεράστιο πλήθος τρόπων αποθήκευσης των δεδομένων</li>
+</ul>
+</section>
+<section id="μειονεκτήματα-1" class="slide level2">
+<h2>Μειονεκτήματα</h2>
+<p><br>
+<br>
+</p>
+<ul>
+<li>Συστηματικό σφάλμα επιλογής (selection bias)
+<ul>
+<li>Μεροληψία του Berkson (Berkson bias)</li>
+<li>Prevalent-user bias</li>
+<li>Immortal time bias</li>
+</ul></li>
+</ul>
+</section>
+<section id="πλασματική-συσχέτιση" class="slide level2">
+<h2>Πλασματική συσχέτιση</h2>
+<p><br>
+<br>
+</p>
 
-<img data-src="images/observational_dag.svg" class="r-stretch"><div class="quarto-auto-generated-content">
+<img data-src="images/observational_dag.svg" class="r-stretch"></section>
+<section id="πλασματική-συσχέτιση---παράδειγμα" class="slide level2">
+<h2>Πλασματική συσχέτιση - Παράδειγμα</h2>
+
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
