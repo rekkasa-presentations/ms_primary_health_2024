@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.57">
+  <meta name="generator" content="quarto-1.4.553">
 
   <title>Εισαγωγή στην ανάλυση υγειονομικών δεδομένων πραγματικού κόσμου</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -420,7 +420,8 @@
 <p><strong>Χρονικό πλαίσιο</strong>: 30 ημέρες</p>
 </blockquote>
 </div>
-</div></div>
+</div>
+</div>
 </section>
 <section id="κλινικές-δοκιμές---παράδειγμα-1" class="slide level2">
 <h2>Κλινικές δοκιμές - Παράδειγμα</h2>
@@ -753,8 +754,187 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 <p><br>
 </p>
 
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<section id="απαρατήρητοι-συγχυτικοί-παράγοντες" class="slide level2">
+<h2>Απαρατήρητοι συγχυτικοί παράγοντες</h2>
+<p><br>
+<br>
+</p>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div class="quarto-auto-generated-content">
+<img data-src="images/unobserved_confounding_dag.svg" class="r-stretch"></section>
+<section id="απαρατήρητοι-συγχυτικοί-παράγοντες-1" class="slide level2">
+<h2>Απαρατήρητοι συγχυτικοί παράγοντες</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p><strong>Αρνητικοί έλεγχοι</strong></p>
+<p>Ιατρικά αποτελέσματα τα οποία γνωρίζουμε ότι δεν σχετίζονται με τις θεραπείες που συγκρίνουμε.</p>
+</blockquote>
+</section>
+<section id="απαρατήρητοι-συγχυτικοί-παράγοντες-2" class="slide level2">
+<h2>Απαρατήρητοι συγχυτικοί παράγοντες</h2>
+<p><br>
+<br>
+</p>
+
+<img data-src="images/negative_control_dag.svg" class="r-stretch"></section>
+<section id="αρνητικοί-έλεγχοι" class="slide level2">
+<h2>Αρνητικοί έλεγχοι</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Δημιουργία αρνητικού ελέγχου</p>
+</blockquote>
+<p><br>
+</p>
+<p><span class="math display">\[
+\begin{align}
+log(\frac{p_{nc}}{1-p_{nc}}) = &amp;-2.64 - 0.15\times sex\_male\\
+&amp;-0.02\times (age - \overline{age})\\
+&amp;+ 0.1\times (sysbp - \overline{sysbp})
+\end{align}
+\]</span></p>
+</section>
+<section id="αρνητικοί-έλεγχοι-1" class="slide level2">
+<h2>Αρνητικοί έλεγχοι</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Μοντέλο για την πιθανότητα λήψης της θεραπείας ενδιαφέροντος (αλτεπλάση)</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{align}
+log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
+&amp;-0.11\times (age - \overline{age})\\
+&amp;+ 0.1\times (sysbp - \overline{sysbp})
+\end{align}
+\]</span></p>
+</section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-10" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Μοντέλο για το αποτέλεσμα ενδιαφέροντος (θάνατος)</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{align}
+log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-45 - 0.92\times sex\_male\\
+&amp;-1.2\times (age - \overline{age})\\
+&amp;-1.2\times (sysbp - \overline{sysbp})\\
+&amp;-0.16\times treatment
+\end{align}
+\]</span></p>
+</section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-11" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Μοντέλο για τα σκορ ροπής</p>
+</blockquote>
+<p><br>
+</p>
+<p><span class="math display">\[
+log(\frac{p_{treatment}}{1-p_{treatment}}) = \beta_0+\beta_{male}\times  sex\_male + \beta_{age}\times age
+\]</span></p>
+</section>
+<section id="ανάλυση-ευαισθησίας" class="slide level2">
+<h2>Ανάλυση ευαισθησίας</h2>
+<p><br>
+<br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="ανάλυση-ευαισθησίας-1" class="slide level2">
+<h2>Ανάλυση ευαισθησίας</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Σωστό μοντέλο για τα σκορ ροπής</p>
+</blockquote>
+<p><br>
+</p>
+<p><span class="math display">\[
+\begin{align}
+log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;\beta_0+\beta_{male}\times sex\_male\\
+&amp;+ \beta_{age}\times age + \beta_{sysbp}\times sysbp
+\end{align}
+\]</span></p>
+</section>
+<section id="ανάλυση-ευαισθησίας-2" class="slide level2">
+<h2>Ανάλυση ευαισθησίας</h2>
+<p><br>
+<br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="ανακεφαλαίωση" class="title-slide slide level1 center">
+<h1>Ανακεφαλαίωση</h1>
+
+</section>
+<section id="ανακεφαλαίωση-1" class="slide level2">
+<h2>Ανακεφαλαίωση</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Τα δεδομένα πραγματικού κόσμου προσφέρουν μεγάλες δυνατότητες αντιμετώπισης των ζητημάτων που μπορεί να σχετίζονται με την εκτέλεση κλινικών δοκιμών</p>
+</blockquote>
+</section>
+<section id="ανακεφαλαίωση-2" class="slide level2">
+<h2>Ανακεφαλαίωση</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Τα δεδομένα πραγματικού κόσμου εισάγουν νέες προκλήσεις για τη σωστή ανάλυσή τους</p>
+</blockquote>
+</section>
+<section id="ανακεφαλαίωση-3" class="slide level2">
+<h2>Ανακεφαλαίωση</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Μία από τις μεγαλύτερες προκλήσεις στην ανάλυση δεδομένων πραγματικού κόσμου είναι η αντιμετώπιση των συγχυτικών παραγόντων</p>
+</blockquote>
+</section>
+<section id="ανακεφαλαίωση-4" class="slide level2">
+<h2>Ανακεφαλαίωση</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Στην περίπτωση μικρού αριθμού και καλά καθορισμένων συγχυτικών παραγόντων, απλή συμπερίληψή τους στο μοντέλο για το αποτέλεσμα ενδιαφέροντος αρκεί για την εξαγωγή σωστών συμπερασμάτων</p>
+</blockquote>
+</section>
+<section id="ανακεφαλαίωση-5" class="slide level2">
+<h2>Ανακεφαλαίωση</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Στην περίπτωση μεγάλου αριθμού συγχυτικών παραγόντων οι οποίοι έχουν μετρηθεί επαρκώς στο δείγμα της ανάλυσης, αντιστοίχιση με τα σκορ ροπής οδηγεί στην εξαγωγή σωστών συμπερασμάτων</p>
+</blockquote>
+</section>
+<section id="ανακεφαλαίωση-6" class="slide level2">
+<h2>Ανακεφαλαίωση</h2>
+<p><br>
+<br>
+</p>
+<blockquote>
+<p>Σε κάθε περίπτωση, ανάλυση ευαισθησίας με τη χρήση αρνητικών ελέγχων μπορεί να χρησιμοποιηθεί για να εξεταστεί η απουσία συγχυτικών παραγόντων από την πραγματοποιούμενη ανάλυση</p>
+</blockquote>
+
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
@@ -1040,7 +1220,18 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1072,29 +1263,7 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1102,7 +1271,7 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {

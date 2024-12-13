@@ -643,3 +643,219 @@ matched_sample |>
   
 
 ```
+
+
+## Απαρατήρητοι συγχυτικοί παράγοντες
+
+\
+\
+
+![](images/unobserved_confounding_dag.svg)
+
+
+## Απαρατήρητοι συγχυτικοί παράγοντες
+
+\
+\
+
+> **Αρνητικοί έλεγχοι**
+>
+> Ιατρικά αποτελέσματα τα οποία γνωρίζουμε ότι δεν σχετίζονται με τις θεραπείες
+> που συγκρίνουμε.
+
+
+## Απαρατήρητοι συγχυτικοί παράγοντες
+
+\
+\
+
+![](images/negative_control_dag.svg)
+
+
+## Αρνητικοί έλεγχοι
+
+\
+\
+
+> Δημιουργία αρνητικού ελέγχου
+
+\
+
+$$
+\begin{align}
+log(\frac{p_{nc}}{1-p_{nc}}) = &-2.64 - 0.15\times sex\_male\\
+&-0.02\times (age - \overline{age})\\
+&+ 0.1\times (sysbp - \overline{sysbp}) 
+\end{align}
+$$
+
+
+## Αρνητικοί έλεγχοι
+
+\
+\
+
+> Μοντέλο για την πιθανότητα λήψης της θεραπείας ενδιαφέροντος (αλτεπλάση)
+
+$$
+\begin{align}
+log(\frac{p_{treatment}}{1-p_{treatment}}) = &-0.60 - 0.92\times sex\_male\\
+&-0.11\times (age - \overline{age})\\
+&+ 0.1\times (sysbp - \overline{sysbp}) 
+\end{align}
+$$
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+\
+
+> Μοντέλο για το αποτέλεσμα ενδιαφέροντος (θάνατος)
+
+$$
+\begin{align}
+log(\frac{p_{outcome}}{1-p_{outcome}}) = &-45 - 0.92\times sex\_male\\
+&-1.2\times (age - \overline{age})\\
+&-1.2\times (sysbp - \overline{sysbp})\\
+&-0.16\times treatment
+\end{align}
+$$
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+\
+
+> Μοντέλο για τα σκορ ροπής
+
+\
+
+$$
+log(\frac{p_{treatment}}{1-p_{treatment}}) = \beta_0+\beta_{male}\times  sex\_male + \beta_{age}\times age
+$$
+
+
+## Ανάλυση ευαισθησίας
+
+\
+\
+
+```{r, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+
+negative_controls <- readr::read_csv(
+  file = "data/negative_controls.csv",
+  show_col_types = FALSE
+)
+
+null <- EmpiricalCalibration::fitNull(
+  logRr = negative_controls$log_odds_ratio_missing,
+  seLogRr = negative_controls$se_log_odds_ratio_missing
+)
+
+EmpiricalCalibration::plotCalibrationEffect(
+  logRrNegatives = negative_controls$log_odds_ratio_missing,
+  seLogRrNegatives = negative_controls$se_log_odds_ratio_missing,
+  null = null,
+  xLabel = "Odds ratio"
+)
+
+```
+
+
+## Ανάλυση ευαισθησίας
+
+\
+\
+
+> Σωστό μοντέλο για τα σκορ ροπής
+
+\
+
+$$
+\begin{align}
+log(\frac{p_{treatment}}{1-p_{treatment}}) = &\beta_0+\beta_{male}\times sex\_male\\
+&+ \beta_{age}\times age + \beta_{sysbp}\times sysbp
+\end{align}
+$$
+
+## Ανάλυση ευαισθησίας
+
+\
+\
+
+```{r, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+
+null <- EmpiricalCalibration::fitNull(
+  logRr = negative_controls$log_odds_ratio,
+  seLogRr = negative_controls$se_log_odds_ratio
+)
+
+EmpiricalCalibration::plotCalibrationEffect(
+  logRrNegatives = negative_controls$log_odds_ratio,
+  seLogRrNegatives = negative_controls$se_log_odds_ratio,
+  null = null,
+  xLabel = "Odds ratio"
+)
+
+```
+
+
+# Ανακεφαλαίωση
+
+## Ανακεφαλαίωση
+
+\
+\
+
+> Τα δεδομένα πραγματικού κόσμου προσφέρουν μεγάλες δυνατότητες αντιμετώπισης των
+> ζητημάτων που μπορεί να σχετίζονται με την εκτέλεση κλινικών δοκιμών
+
+
+## Ανακεφαλαίωση
+
+\
+\
+
+> Τα δεδομένα πραγματικού κόσμου εισάγουν νέες προκλήσεις για τη σωστή ανάλυσή
+> τους
+
+
+
+## Ανακεφαλαίωση
+
+\
+\
+
+> Μία από τις μεγαλύτερες προκλήσεις στην ανάλυση δεδομένων πραγματικού κόσμου
+> είναι η αντιμετώπιση των συγχυτικών παραγόντων
+
+
+## Ανακεφαλαίωση
+
+\
+\
+
+> Στην περίπτωση μικρού αριθμού και καλά καθορισμένων συγχυτικών παραγόντων, απλή
+> συμπερίληψή τους στο μοντέλο για το αποτέλεσμα ενδιαφέροντος αρκεί για την
+> εξαγωγή σωστών συμπερασμάτων
+
+
+## Ανακεφαλαίωση
+
+\
+\
+
+> Στην περίπτωση μεγάλου αριθμού συγχυτικών παραγόντων οι οποίοι έχουν μετρηθεί
+> επαρκώς στο δείγμα της ανάλυσης, αντιστοίχιση με τα σκορ ροπής οδηγεί στην
+> εξαγωγή σωστών συμπερασμάτων
+
+
+
+## Ανακεφαλαίωση
+
+\
+\
+
+> Σε κάθε περίπτωση, ανάλυση ευαισθησίας με τη χρήση αρνητικών ελέγχων μπορεί να
+> χρησιμοποιηθεί για να εξεταστεί η απουσία συγχυτικών παραγόντων από την
+> πραγματοποιούμενη ανάλυση
