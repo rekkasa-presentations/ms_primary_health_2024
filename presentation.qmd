@@ -171,7 +171,6 @@ $$
 
 $$OR = e^{\beta_t} = e^{-0.16} \approx 0.85$$
 
-# Δεδομένα πραγματικού κόσμου
 
 ## Περιορισμοί κλινικών δοκιμών
 
@@ -184,6 +183,8 @@ $$OR = e^{\beta_t} = e^{-0.16} \approx 0.85$$
 * Μελετούν πολύ συγκεκριμένους πληθυσμούς
 * Συνήθως απαντούν σε έναν πολύ περιορισμένο αριθμό ερωτημάτων
 * Εξ'ορισμού, απαιτούν πειραματισμό --- ηθικά ζητήματα
+
+# Δεδομένα πραγματικού κόσμου
 
 ## Δεδομένα πραγματικού κόσμου
 
@@ -446,22 +447,8 @@ $$
 \begin{align}
 log(\frac{p_{outcome}}{1-p_{outcome}}) = &-3 - 0.92\times sex\_male\\
 &-0.10\times (age - \overline{age})\\
-&-1.20\times (sysbp - \overline{sysbp})\\
-&+0.05\times treatment
-\end{align}
-$$
-
-## Συγχυτικοί παράγοντες - Παράδειγμα
-
-\
-\
-
-> Το μοντέλο που θα χρησιμοποιήσουμε για τον υπολογισμό των σκορ ροπής
-
-$$
-\begin{align}
-\log(\frac{p_{treatment}}{1-p_{treatment}}) = &\beta_0+\beta_{male}\times sex\_male\\
-&+\beta_{age}\times age+\beta_{sysbp}\times sysbp
+&+0.05\times (sysbp - \overline{sysbp})\\
+&-0.16\times treatment
 \end{align}
 $$
 
@@ -594,6 +581,7 @@ observational_data |>
 
 ```
 
+
 ## Συγχυτικοί παράγοντες - Παράδειγμα
 
 \
@@ -607,6 +595,22 @@ $$
 Το αποτέλεσμα της ανάλυσης:
 
 $$OR = e^{\beta_t} = e^{0.17} \approx 1.19 \neq0.85 (RCT)$$
+
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+\
+
+> Το μοντέλο που θα χρησιμοποιήσουμε για τον υπολογισμό των σκορ ροπής
+
+$$
+\begin{align}
+\log(\frac{p_{treatment}}{1-p_{treatment}}) = &\beta_0+\beta_{male}\times sex\_male\\
+&+\beta_{age}\times age+\beta_{sysbp}\times sysbp
+\end{align}
+$$
+
 
 
 ## Συγχυτικοί παράγοντες - Παράδειγμα
@@ -738,7 +742,7 @@ $$
 \begin{align}
 log(\frac{p_{treatment}}{1-p_{treatment}}) = &-0.60 - 0.92\times sex\_male\\
 &-0.11\times (age - \overline{age})\\
-&+ 0.1\times (sysbp - \overline{sysbp}) 
+&+ 0.05\times (sysbp - \overline{sysbp}) 
 \end{align}
 $$
 
@@ -751,9 +755,9 @@ $$
 
 $$
 \begin{align}
-log(\frac{p_{outcome}}{1-p_{outcome}}) = &-45 - 0.92\times sex\_male\\
-&-1.2\times (age - \overline{age})\\
-&-1.2\times (sysbp - \overline{sysbp})\\
+log(\frac{p_{outcome}}{1-p_{outcome}}) = &-3 - 0.92\times sex\_male\\
+&-0.10\times (age - \overline{age})\\
+&+0.05\times (sysbp - \overline{sysbp})\\
 &-0.16\times treatment
 \end{align}
 $$

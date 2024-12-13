@@ -480,11 +480,6 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 </p>
 <p>Το αποτέλεσμα της ανάλυσης:</p>
 <p><span class="math display">\[OR = e^{\beta_t} = e^{-0.16} \approx 0.85\]</span></p>
-</section></section>
-<section>
-<section id="δεδομένα-πραγματικού-κόσμου" class="title-slide slide level1 center">
-<h1>Δεδομένα πραγματικού κόσμου</h1>
-
 </section>
 <section id="περιορισμοί-κλινικών-δοκιμών" class="slide level2">
 <h2>Περιορισμοί κλινικών δοκιμών</h2>
@@ -499,6 +494,11 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 <li>Συνήθως απαντούν σε έναν πολύ περιορισμένο αριθμό ερωτημάτων</li>
 <li>Εξ’ορισμού, απαιτούν πειραματισμό — ηθικά ζητήματα</li>
 </ul>
+</section></section>
+<section>
+<section id="δεδομένα-πραγματικού-κόσμου" class="title-slide slide level1 center">
+<h1>Δεδομένα πραγματικού κόσμου</h1>
+
 </section>
 <section id="δεδομένα-πραγματικού-κόσμου-1" class="slide level2">
 <h2>Δεδομένα πραγματικού κόσμου</h2>
@@ -713,12 +713,47 @@ log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
 \begin{align}
 log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-3 - 0.92\times sex\_male\\
 &amp;-0.10\times (age - \overline{age})\\
-&amp;-1.20\times (sysbp - \overline{sysbp})\\
-&amp;+0.05\times treatment
+&amp;+0.05\times (sysbp - \overline{sysbp})\\
+&amp;-0.16\times treatment
 \end{align}
 \]</span></p>
 </section>
 <section id="συγχυτικοί-παράγοντες---παράδειγμα-2" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-3" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-4" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-5" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-6" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+<br>
+</p>
+<p><span class="math display">\[
+log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
+\]</span></p>
+<p>Το αποτέλεσμα της ανάλυσης:</p>
+<p><span class="math display">\[OR = e^{\beta_t} = e^{0.17} \approx 1.19 \neq0.85 (RCT)\]</span></p>
+</section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-7" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 <br>
@@ -732,41 +767,6 @@ log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-3 - 0.92\times sex\_male\\
 &amp;+\beta_{age}\times age+\beta_{sysbp}\times sysbp
 \end{align}
 \]</span></p>
-</section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-3" class="slide level2">
-<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
-<p><br>
-</p>
-
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-4" class="slide level2">
-<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
-<p><br>
-</p>
-
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-5" class="slide level2">
-<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
-<p><br>
-</p>
-
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-6" class="slide level2">
-<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
-<p><br>
-</p>
-
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-7" class="slide level2">
-<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
-<p><br>
-<br>
-</p>
-<p><span class="math display">\[
-log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
-\]</span></p>
-<p>Το αποτέλεσμα της ανάλυσης:</p>
-<p><span class="math display">\[OR = e^{\beta_t} = e^{0.17} \approx 1.19 \neq0.85 (RCT)\]</span></p>
 </section>
 <section id="συγχυτικοί-παράγοντες---παράδειγμα-8" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
@@ -842,7 +842,7 @@ log(\frac{p_{nc}}{1-p_{nc}}) = &amp;-2.64 - 0.15\times sex\_male\\
 \begin{align}
 log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
 &amp;-0.11\times (age - \overline{age})\\
-&amp;+ 0.1\times (sysbp - \overline{sysbp})
+&amp;+ 0.05\times (sysbp - \overline{sysbp})
 \end{align}
 \]</span></p>
 </section>
@@ -856,9 +856,9 @@ log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
 </blockquote>
 <p><span class="math display">\[
 \begin{align}
-log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-45 - 0.92\times sex\_male\\
-&amp;-1.2\times (age - \overline{age})\\
-&amp;-1.2\times (sysbp - \overline{sysbp})\\
+log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-3 - 0.92\times sex\_male\\
+&amp;-0.10\times (age - \overline{age})\\
+&amp;+0.05\times (sysbp - \overline{sysbp})\\
 &amp;-0.16\times treatment
 \end{align}
 \]</span></p>
