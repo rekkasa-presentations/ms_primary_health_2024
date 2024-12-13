@@ -476,6 +476,8 @@ log(\frac{p}{1-p}) = \beta_0+\beta_1x_1+\dots+\beta_px_p
 <p><span class="math display">\[
 log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 \]</span></p>
+<p><br>
+</p>
 <p>Το αποτέλεσμα της ανάλυσης:</p>
 <p><span class="math display">\[OR = e^{\beta_t} = e^{-0.16} \approx 0.85\]</span></p>
 </section></section>
@@ -626,6 +628,8 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 <p><span class="math display">\[
 log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\_male
 \]</span></p>
+<p><br>
+</p>
 <p>Το αποτέλεσμα της ανάλυσης:</p>
 <p><span class="math display">\[OR = e^{\beta_t} = e^{-0.15} \approx 0.86 \approx0.85 (RCT)\]</span></p>
 </section>
@@ -658,6 +662,17 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\
 Πιθανότητα χορήγησης στον ασθενή της θεραπείας ενδιαφέροντος</p>
 </blockquote>
 </section>
+<section id="σκορ-ροπής" class="slide level2">
+<h2>Σκορ ροπής</h2>
+<p><br>
+<br>
+</p>
+<p>Το μοντέλο που χρησιμοποιούμε για την εξαγωγή των σκορ ροπής είναι της μορφής:</p>
+<p><span class="math display">\[
+\log(\frac{p_{treatment}}{1 - p_{treatment}}) = \beta_0+\beta_1x_{1}+\dots+\beta_px_p,
+\]</span></p>
+<p>όπου <span class="math inline">\(x_1,\dots,x_p\)</span> είναι γνωστοί συγχυτικοί παράγοντες.</p>
+</section>
 <section id="συγχυτικοί-παράγοντες---πλήθος-3" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Πλήθος</h2>
 <p><br>
@@ -674,7 +689,7 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\
 <br>
 </p>
 <blockquote>
-<p>Δημιουργία δεδομένων με περισσότερους συγχυτικούς παράγοντες</p>
+<p>Το μοντέλο που καθορίζει τις πιθανότητες λήψης της θεραπείας ενδιαφέροντος (αλτεπλάση)</p>
 </blockquote>
 <p><br>
 </p>
@@ -691,6 +706,9 @@ log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
 <p><br>
 <br>
 </p>
+<blockquote>
+<p>Το μοντέλο που καθορίζει τις πιθανότητες του αποτελέσματος ενδιαφέροντος (θάνατος)</p>
+</blockquote>
 <p><span class="math display">\[
 \begin{align}
 log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-45 - 0.92\times sex\_male\\
@@ -703,28 +721,43 @@ log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-45 - 0.92\times sex\_male\\
 <section id="συγχυτικοί-παράγοντες---παράδειγμα-2" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
+<br>
 </p>
-
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<blockquote>
+<p>Το μοντέλο που θα χρησιμοποιήσουμε για τον υπολογισμό των σκορ ροπής</p>
+</blockquote>
+<p><span class="math display">\[
+\begin{align}
+\log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;\beta_0+\beta_{male}\times sex\_male\\
+&amp;+\beta_{age}\times age+\beta_{sysbp}\times sysbp
+\end{align}
+\]</span></p>
+</section>
 <section id="συγχυτικοί-παράγοντες---παράδειγμα-3" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 </p>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="συγχυτικοί-παράγοντες---παράδειγμα-4" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 </p>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="συγχυτικοί-παράγοντες---παράδειγμα-5" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 </p>
 
-<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
 <section id="συγχυτικοί-παράγοντες---παράδειγμα-6" class="slide level2">
+<h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
+<p><br>
+</p>
+
+<img data-src="presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-7" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 <br>
@@ -735,7 +768,7 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 <p>Το αποτέλεσμα της ανάλυσης:</p>
 <p><span class="math display">\[OR = e^{\beta_t} = e^{0.17} \approx 1.19 \neq0.85 (RCT)\]</span></p>
 </section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-7" class="slide level2">
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-8" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 <br>
@@ -743,13 +776,13 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 <p>Το αποτέλεσμα της ανάλυσης, ύστερα από αντιστοίχιση:</p>
 <p><span class="math display">\[OR = e^{\beta_t} = e^{-0.14} \approx 0.87 \approx 0.85 (RCT)\]</span></p>
 </section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-8" class="slide level2">
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-9" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 </p>
 
 <img data-src="presentation_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-9" class="slide level2">
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-10" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 </p>
@@ -813,7 +846,7 @@ log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
 \end{align}
 \]</span></p>
 </section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-10" class="slide level2">
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-11" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 <br>
@@ -830,7 +863,7 @@ log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-45 - 0.92\times sex\_male\\
 \end{align}
 \]</span></p>
 </section>
-<section id="συγχυτικοί-παράγοντες---παράδειγμα-11" class="slide level2">
+<section id="συγχυτικοί-παράγοντες---παράδειγμα-12" class="slide level2">
 <h2>Συγχυτικοί παράγοντες - Παράδειγμα</h2>
 <p><br>
 <br>
@@ -935,6 +968,7 @@ log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;\beta_0+\beta_{male}\times sex
 </blockquote>
 
 <div class="quarto-auto-generated-content">
+<p><img src="images/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>

@@ -1,5 +1,15 @@
 /* css styles */
 
+.title {
+  font-size: 100px !important;
+  color: black !important;
+}
+
+.level1 {
+  font-size: 40px !important;
+  color: black !important;
+}
+
 .small-text {
     font-size: 0.7em;
 }
@@ -9,4 +19,8 @@
     max-height: 200px;
     overflow: auto;
     font-size: 0.6em;
+}
+
+.reveal .slide-logo {
+   max-height: 2.5em !important;
 }

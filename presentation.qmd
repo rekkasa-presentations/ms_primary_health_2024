@@ -8,6 +8,7 @@ format:
     fontsize: "60px"
     slide-number: true
     menu: false
+    logo: images/logo.png
 css: styles.css
 ---
 
@@ -163,6 +164,8 @@ $$
 log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment
 $$
 
+
+\
 
 Το αποτέλεσμα της ανάλυσης:
 
@@ -352,6 +355,8 @@ $$
 log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\_male
 $$
 
+\
+
 
 Το αποτέλεσμα της ανάλυσης:
 
@@ -385,6 +390,20 @@ $$OR = e^{\beta_t} = e^{-0.15} \approx 0.86 \approx0.85 (RCT)$$
 > Πιθανότητα χορήγησης στον ασθενή της θεραπείας ενδιαφέροντος
 
 
+## Σκορ ροπής
+
+\
+\
+
+Το μοντέλο που χρησιμοποιούμε για την εξαγωγή των σκορ ροπής είναι της μορφής:
+
+$$
+\log(\frac{p_{treatment}}{1 - p_{treatment}}) = \beta_0+\beta_1x_{1}+\dots+\beta_px_p,
+$$
+
+όπου $x_1,\dots,x_p$ είναι γνωστοί συγχυτικοί παράγοντες.
+
+
 ## Συγχυτικοί παράγοντες - Πλήθος
 
 \
@@ -402,7 +421,8 @@ $$OR = e^{\beta_t} = e^{-0.15} \approx 0.86 \approx0.85 (RCT)$$
 \
 \
 
-> Δημιουργία δεδομένων με περισσότερους συγχυτικούς παράγοντες
+> Το μοντέλο που καθορίζει τις πιθανότητες λήψης της θεραπείας ενδιαφέροντος
+> (αλτεπλάση)
 
 \
 
@@ -419,12 +439,29 @@ $$
 \
 \
 
+> Το μοντέλο που καθορίζει τις πιθανότητες του αποτελέσματος ενδιαφέροντος
+> (θάνατος)
+
 $$
 \begin{align}
 log(\frac{p_{outcome}}{1-p_{outcome}}) = &-45 - 0.92\times sex\_male\\
 &-1.2\times (age - \overline{age})\\
 &-1.2\times (sysbp - \overline{sysbp})\\
 &-0.16\times treatment
+\end{align}
+$$
+
+## Συγχυτικοί παράγοντες - Παράδειγμα
+
+\
+\
+
+> Το μοντέλο που θα χρησιμοποιήσουμε για τον υπολογισμό των σκορ ροπής
+
+$$
+\begin{align}
+\log(\frac{p_{treatment}}{1-p_{treatment}}) = &\beta_0+\beta_{male}\times sex\_male\\
+&+\beta_{age}\times age+\beta_{sysbp}\times sysbp
 \end{align}
 $$
 
