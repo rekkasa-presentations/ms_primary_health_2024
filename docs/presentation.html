@@ -384,7 +384,7 @@
 <br>
 </p>
 <ul>
-<li>Λήψη τυχαίου δείγματος από τον πληθυσμό</li>
+<li>Λήψη τυχαίου <strong>αντιπροσωπευτικού</strong> δείγματος από τον πληθυσμό</li>
 <li>Τυχαιοποιημένη διανομή θεραπειών ενδιαφέροντος</li>
 <li>Αυστηρά προκαθορισμένα αποτελέσματα ενδιαφέροντος</li>
 <li>Αυστηρά προκαθορισμένα χρονικά πλαίσια</li>
@@ -697,7 +697,7 @@ log(\frac{p}{1-p}) = \beta_0 + \beta_t\times treatment + \beta_{male}\times sex\
 \begin{align}
 log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
 &amp;-0.11\times (age - \overline{age})\\
-&amp;+ 0.1\times (sysbp - \overline{sysbp})
+&amp;+ 0.05\times (sysbp - \overline{sysbp})
 \end{align}
 \]</span></p>
 </section>
@@ -711,10 +711,10 @@ log(\frac{p_{treatment}}{1-p_{treatment}}) = &amp;-0.60 - 0.92\times sex\_male\\
 </blockquote>
 <p><span class="math display">\[
 \begin{align}
-log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-45 - 0.92\times sex\_male\\
-&amp;-1.2\times (age - \overline{age})\\
-&amp;-1.2\times (sysbp - \overline{sysbp})\\
-&amp;-0.16\times treatment
+log(\frac{p_{outcome}}{1-p_{outcome}}) = &amp;-3 - 0.92\times sex\_male\\
+&amp;-0.10\times (age - \overline{age})\\
+&amp;-1.20\times (sysbp - \overline{sysbp})\\
+&amp;+0.05\times treatment
 \end{align}
 \]</span></p>
 </section>
