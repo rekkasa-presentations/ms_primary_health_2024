@@ -1,13 +1,26 @@
-/* css styles */
+/* Import Greek-friendly fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+/* Base font settings for better Greek support */
+.reveal {
+  font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 600;
+}
 
 .title {
   font-size: 100px !important;
   color: black !important;
+  font-weight: 700 !important;
 }
 
 .level1 {
   font-size: 40px !important;
   color: black !important;
+  font-weight: 600 !important;
 }
 
 .small-text {
@@ -23,4 +36,10 @@
 
 .reveal .slide-logo {
    max-height: 2.5em !important;
+}
+
+/* Better rendering for Greek characters */
+.reveal p, .reveal li, .reveal td, .reveal th {
+  font-weight: 400;
+  line-height: 1.4;
 }

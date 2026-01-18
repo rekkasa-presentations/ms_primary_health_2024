@@ -10,6 +10,11 @@ format:
     menu: false
     logo: images/logo.png
 css: styles.css
+knitr:
+  opts_chunk:
+    fig.width: 10
+    fig.height: 6
+    dev: "svglite"
 ---
 
 ```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
@@ -429,7 +434,7 @@ $$
 
 $$
 \begin{align}
-log(\frac{p_{treatment}}{1-p_{treatment}}) = &-0.60 - 0.92\times sex\_male\\
+log(\frac{p_{treatment}}{1-p_{treatment}}) = &-0.34 - 0.92\times sex\_male\\
 &-0.11\times (age - \overline{age})\\
 &+ 0.05\times (sysbp - \overline{sysbp}) 
 \end{align}
@@ -446,7 +451,7 @@ $$
 $$
 \begin{align}
 log(\frac{p_{outcome}}{1-p_{outcome}}) = &-3 - 0.92\times sex\_male\\
-&-0.10\times (age - \overline{age})\\
+&+0.10\times (age - \overline{age})\\
 &+0.05\times (sysbp - \overline{sysbp})\\
 &-0.16\times treatment
 \end{align}
@@ -458,7 +463,7 @@ $$
 
 ```{r, eval=TRUE, echo=FALSE, warning=FALSE, message=FALSE}
 
-rct_data <- gusto_with_multiple_confounders |>
+rct_data <- readr::read_csv("data/gusto_with_multiple_confounders.csv") |>
   dplyr::mutate(
     sex = ifelse(sex_male == 1, "male", "female"),
     treatment = ifelse(treatment == 1, "tPA", "Streptokinase")
@@ -756,7 +761,7 @@ $$
 $$
 \begin{align}
 log(\frac{p_{outcome}}{1-p_{outcome}}) = &-3 - 0.92\times sex\_male\\
-&-0.10\times (age - \overline{age})\\
+&+0.10\times (age - \overline{age})\\
 &+0.05\times (sysbp - \overline{sysbp})\\
 &-0.16\times treatment
 \end{align}
@@ -898,5 +903,5 @@ EmpiricalCalibration::plotCalibrationEffect(
 \
 
 > Σε κάθε περίπτωση, ανάλυση ευαισθησίας με τη χρήση αρνητικών ελέγχων μπορεί να
-> χρησιμοποιηθεί για να εξεταστεί η απουσία συγχυτικών παραγόντων από την
+> χρησιμοποιηθεί για να εξεταστεί η παράλειψη συγχυτικών παραγόντων από την
 > πραγματοποιούμενη ανάλυση

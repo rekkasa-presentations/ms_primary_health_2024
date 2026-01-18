@@ -50,7 +50,7 @@ gusto_with_multiple_confounders <- gusto |>
     new_treatment = rbinom(nrow(gusto), 1, plogis(linear_predictor_treatment)),
     linear_predictor_outcome = -3 + log(.4) * sex_male + log(1.1) * (age - mean(age)) + log(1.05) * (sysbp - mean(sysbp)) - 0.1586183 * new_treatment,
     new_outcome = rbinom(nrow(gusto), 1, plogis(linear_predictor_outcome))
-  )
+    )
 
 c(mean(gusto_with_multiple_confounders$new_outcome), mean(gusto_with_multiple_confounders$outcome))
 
